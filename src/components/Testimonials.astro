@@ -2,45 +2,31 @@
 import { testimonials } from '../data/site';
 ---
 <section class="container-content py-20 lg:py-28">
-  <div class="reveal mx-auto max-w-2xl text-center">
-    <p class="eyebrow justify-center">What our customers say</p>
-    <h2 class="mt-3 text-3xl font-extrabold text-brand-ink sm:text-4xl">Five-star feedback</h2>
+  <div class="reveal flex flex-col justify-between gap-4 border-b border-black/15 pb-8 sm:flex-row sm:items-end">
+    <div><p class="eyebrow">What our customers say</p><h2 class="mt-4 text-4xl font-semibold sm:text-5xl">Five-star feedback.</h2></div>
+    <p class="text-sm text-slate-muted">Independent Google reviews</p>
   </div>
-
-  <div class="reveal relative mt-12" data-delay="1">
-    <div id="tcarousel" class="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-      {testimonials.map((t) => (
-        <figure class="w-[85%] flex-none snap-center rounded-3xl border border-black/10 bg-white p-8 shadow-card sm:w-[48%] lg:w-[32%]">
-          <div class="flex gap-0.5 text-brand-red" aria-label={`${t.rating} out of 5 stars`}>
-            {Array.from({ length: t.rating }).map(() => (
-              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.3 4.03a1 1 0 0 0 .95.69h4.24c.97 0 1.37 1.24.59 1.81l-3.43 2.49a1 1 0 0 0-.36 1.12l1.3 4.03c.3.92-.75 1.69-1.54 1.12l-3.43-2.49a1 1 0 0 0-1.18 0l-3.43 2.49c-.79.57-1.84-.2-1.54-1.12l1.3-4.03a1 1 0 0 0-.36-1.12L2.72 9.46c-.78-.57-.38-1.81.59-1.81h4.24a1 1 0 0 0 .95-.69l1.3-4.03Z" /></svg>
-            ))}
-          </div>
-          <blockquote class="mt-5 text-sm leading-relaxed text-brand-ink">“{t.quote}”</blockquote>
-          <figcaption class="mt-6 border-t border-black/5 pt-4">
-            <p class="font-bold text-brand-ink">{t.author}</p>
-            <p class="text-xs text-slate-muted">{t.source}</p>
-          </figcaption>
+  <div class="reveal relative" data-delay="1">
+    <div id="tcarousel" class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      {testimonials.map((t, i) => (
+        <figure class:list={["w-[88%] flex-none snap-center px-0 py-10 pr-8 sm:w-1/2 sm:px-8", i > 0 ? 'border-l border-black/15' : 'sm:pl-0']}>
+          <div class="flex gap-0.5 text-brand-red" aria-label={`${t.rating} out of 5 stars`}>{Array.from({ length: t.rating }).map(() => <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.3 4.03a1 1 0 0 0 .95.69h4.24c.97 0 1.37 1.24.59 1.81l-3.43 2.49a1 1 0 0 0-.36 1.12l1.3 4.03c.3.92-.75 1.69-1.54 1.12l-3.43-2.49a1 1 0 0 0-1.18 0l-3.43 2.49c-.79.57-1.84-.2-1.54-1.12l1.3-4.03a1 1 0 0 0-.36-1.12L2.72 9.46c-.78-.57-.38-1.81.59-1.81h4.24a1 1 0 0 0 .95-.69l1.3-4.03Z" /></svg>)}</div>
+          <blockquote class="mt-5 text-lg leading-relaxed tracking-[-0.01em] text-brand-ink">“{t.quote}”</blockquote>
+          <figcaption class="mt-7 text-sm"><p class="font-semibold text-brand-ink">{t.author}</p><p class="mt-1 text-slate-muted">{t.source}</p></figcaption>
         </figure>
       ))}
     </div>
-
-    <div class="mt-6 flex items-center justify-center gap-3">
-      <button id="tprev" class="rounded-full border border-black/15 p-2.5 text-brand-ink transition hover:border-brand-red hover:text-brand-red" aria-label="Previous testimonial">
-        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
-      </button>
-      <button id="tnext" class="rounded-full border border-black/15 p-2.5 text-brand-ink transition hover:border-brand-red hover:text-brand-red" aria-label="Next testimonial">
-        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-      </button>
+    <div class="flex gap-2 border-t border-black/15 pt-6">
+      <button id="tprev" class="flex h-9 w-9 items-center justify-center rounded-full border border-black/20 text-brand-ink transition hover:bg-brand-black hover:text-white" aria-label="Previous testimonial"><span aria-hidden="true">←</span></button>
+      <button id="tnext" class="flex h-9 w-9 items-center justify-center rounded-full border border-black/20 text-brand-ink transition hover:bg-brand-black hover:text-white" aria-label="Next testimonial"><span aria-hidden="true">→</span></button>
     </div>
   </div>
 </section>
-
 <script>
   const track = document.getElementById('tcarousel');
   const prev = document.getElementById('tprev');
   const next = document.getElementById('tnext');
-  const scrollBy = () => (track ? Math.min(track.clientWidth * 0.9, 420) : 320);
+  const scrollBy = () => (track ? Math.min(track.clientWidth * 0.85, 520) : 320);
   prev?.addEventListener('click', () => track?.scrollBy({ left: -scrollBy(), behavior: 'smooth' }));
   next?.addEventListener('click', () => track?.scrollBy({ left: scrollBy(), behavior: 'smooth' }));
 </script>

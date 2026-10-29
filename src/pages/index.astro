@@ -10,37 +10,10 @@ import { business } from '../data/site';
 ---
 <Base>
   <Hero />
-
-  <!-- About intro -->
-  <section class="container-content py-20 lg:py-24">
-    <div class="reveal mx-auto max-w-3xl text-center">
-      <p class="eyebrow justify-center">About Direct Installations</p>
-      <p class="mt-5 text-lg leading-relaxed text-brand-ink sm:text-xl">
-        {business.about}
-      </p>
-      <a href="/about" class="mt-8 inline-flex items-center gap-1.5 font-semibold text-brand-red">
-        More about us
-        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-      </a>
-    </div>
-  </section>
-
+  <section class="container-content py-20 text-center lg:py-28"><div class="reveal mx-auto max-w-4xl"><p class="eyebrow justify-center">About Direct Installations</p><h2 class="mt-4 text-4xl font-semibold leading-tight text-brand-ink sm:text-5xl">Specialist knowledge. Straightforward service.</h2><p class="mt-6 text-lg leading-relaxed text-slate-muted">{business.about}</p><a href="/about" class="mt-8 inline-flex border-b border-brand-red pb-1 text-sm font-medium text-brand-ink transition hover:text-brand-red">More about us <span class="ml-2" aria-hidden="true">→</span></a></div></section>
   <ServicesInteractive />
   <Coverage />
-
-  <!-- Recent projects -->
-  <section class="container-content py-20 lg:py-28">
-    <div class="reveal mb-12 flex flex-col items-end justify-between gap-4 sm:flex-row">
-      <div>
-        <p class="eyebrow">Recent Projects</p>
-        <h2 class="mt-3 text-3xl font-extrabold text-brand-ink sm:text-4xl">Work we're proud of</h2>
-        <p class="mt-3 max-w-md text-slate-muted">{business.distributorLine}</p>
-      </div>
-      <a href="/projects" class="btn-ghost">View all projects</a>
-    </div>
-    <ProjectsGrid limit={6} />
-  </section>
-
+  <section class="container-content py-20 lg:py-28"><div class="reveal mb-12 flex flex-col gap-5 border-b border-black/15 pb-8 sm:flex-row sm:items-end sm:justify-between"><div><p class="eyebrow">Recent Projects</p><h2 class="mt-4 text-4xl font-semibold sm:text-5xl">Work we're proud of.</h2><p class="mt-3 text-slate-muted">{business.distributorLine}</p></div><a href="/projects" class="btn-ghost">View all projects</a></div><ProjectsGrid limit={6} /></section>
   <Testimonials />
   <CtaBand />
 </Base>

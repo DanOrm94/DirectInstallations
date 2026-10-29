@@ -10,15 +10,19 @@
   }
 
   body {
-    @apply bg-paper text-brand-ink font-body;
+    @apply bg-white text-brand-ink font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-bold tracking-tight;
+    @apply font-sans font-semibold tracking-[-0.04em];
   }
 
   :focus-visible {
-    @apply outline-none ring-2 ring-brand-red ring-offset-2 ring-offset-paper;
+    @apply outline-none ring-2 ring-brand-red ring-offset-2 ring-offset-white;
+  }
+
+  ::selection {
+    @apply bg-brand-red text-white;
   }
 }
 
@@ -28,32 +32,40 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium
            transition-all duration-200 focus-visible:ring-2 focus-visible:ring-offset-2;
   }
 
   .btn-primary {
-    @apply btn bg-brand-red text-white shadow-card hover:bg-brand-red-dark hover:-translate-y-0.5 hover:shadow-card-hover;
+    @apply btn bg-brand-black text-white hover:scale-[1.02] hover:bg-black;
   }
 
   .btn-ghost {
-    @apply btn border border-brand-black/15 bg-white/70 text-brand-ink backdrop-blur hover:border-brand-red hover:text-brand-red;
+    @apply btn border border-black/20 bg-white text-brand-ink hover:border-brand-black hover:bg-brand-black hover:text-white;
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-red;
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-brand-red;
   }
 
   .link-underline {
-    @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:bg-brand-red
+    @apply relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-brand-red
            after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .section-rule {
+    @apply border-t border-black/15;
+  }
+
+  .product-kicker {
+    @apply text-sm font-medium tracking-[-0.01em] text-slate-muted;
   }
 }
 
 /* Scroll-reveal — elements get .reveal, IntersectionObserver adds .is-visible */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(20px);
   transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
               transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;

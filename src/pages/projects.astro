@@ -6,16 +6,7 @@ import CtaBand from '../components/CtaBand.astro';
 import { business } from '../data/site';
 ---
 <Base title="Projects | Direct Installations" description="A selection of recent VELFAC and Rationel window and door projects across the North West and North Wales.">
-  <PageHero
-    eyebrow="Recent Projects"
-    title="Work we're proud of"
-    subtitle={business.distributorLine}
-  />
-  <div class="container-content py-16 lg:py-24">
-    <p class="reveal mb-10 rounded-2xl border border-dashed border-brand-red/30 bg-brand-red/5 px-5 py-4 text-sm text-slate-muted">
-      These are placeholder images — swap the files in <code class="rounded bg-white px-1.5 py-0.5 text-brand-red">/public/projects</code> with real project photography to go live.
-    </p>
-    <ProjectsGrid filterable />
-  </div>
+  <PageHero eyebrow="Recent Projects" title="Work we're proud of." subtitle={business.distributorLine} />
+  <div class="container-content py-16 lg:py-24"><p class="reveal mb-12 border-l-2 border-brand-red pl-4 text-sm leading-relaxed text-slate-muted">Project imagery is currently illustrative. Replace the files in <code class="font-medium text-brand-ink">/public/projects</code> with completed-project photography before launch.</p><ProjectsGrid filterable /></div>
   <CtaBand />
 </Base>

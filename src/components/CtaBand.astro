@@ -1,31 +1,14 @@
 ---
 import { contact } from '../data/site';
 ---
-<section class="container-content py-16">
-  <div class="reveal relative overflow-hidden rounded-[2rem] bg-brand-red px-8 py-14 text-center text-white shadow-card-hover sm:px-14">
-    <div class="pointer-events-none absolute inset-0 opacity-10" aria-hidden="true">
-      <svg class="h-full w-full" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <pattern id="ctapanes" width="60" height="60" patternUnits="userSpaceOnUse">
-            <rect x="4" y="4" width="52" height="52" fill="none" stroke="#fff" stroke-width="2" />
-            <line x1="30" y1="4" x2="30" y2="56" stroke="#fff" stroke-width="2" />
-            <line x1="4" y1="30" x2="56" y2="30" stroke="#fff" stroke-width="2" />
-          </pattern>
-        </defs>
-        <rect width="400" height="200" fill="url(#ctapanes)" />
-      </svg>
-    </div>
-    <div class="relative">
-      <h2 class="text-3xl font-extrabold sm:text-4xl">Ready to start your project?</h2>
-      <p class="mx-auto mt-3 max-w-xl text-white/90">
-        Speak to our team about supply, installation, servicing or repairs — or book a visit to our Denton showroom.
-      </p>
-      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-        <a href={contact.phoneHref} class="btn bg-white text-brand-red hover:-translate-y-0.5 hover:bg-white/90">
-          Call {contact.phone}
-        </a>
-        <a href="/contact" class="btn border border-white/60 text-white hover:bg-white/10">Send an enquiry</a>
-      </div>
+<section class="bg-brand-black text-white">
+  <div class="container-content py-20 text-center sm:py-24">
+    <p class="eyebrow justify-center text-brand-red-light">Direct Installations</p>
+    <h2 class="mx-auto mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">Ready to start your project?</h2>
+    <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/65">Speak to our team about supply, installation, servicing or repairs, or arrange a showroom visit in Denton.</p>
+    <div class="mt-9 flex flex-wrap justify-center gap-3">
+      <a href={contact.phoneHref} class="btn bg-white text-brand-black hover:scale-[1.02] hover:bg-white/90">Call {contact.phone}</a>
+      <a href="/contact" class="btn border border-white/40 text-white hover:border-white hover:bg-white/10">Send an enquiry</a>
     </div>
   </div>
 </section>

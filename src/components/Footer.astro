@@ -3,47 +3,11 @@ import Logo from './Logo.astro';
 import { business, contact, nav } from '../data/site';
 const year = new Date().getFullYear();
 ---
-<footer class="mt-24 bg-brand-black text-white/80">
-  <div class="container-content grid gap-10 py-14 md:grid-cols-4">
-    <div class="md:col-span-2">
-      <div class="inline-flex rounded-xl bg-white p-3">
-        <Logo class="h-10 w-auto" />
-      </div>
-      <p class="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
-        {business.tagline}. {business.intro}
-      </p>
-    </div>
-
-    <div>
-      <h3 class="text-sm font-semibold uppercase tracking-wider text-white">Explore</h3>
-      <ul class="mt-4 space-y-2 text-sm">
-        {nav.map((item) => (
-          <li>
-            <a href={item.href} class="text-white/70 transition-colors hover:text-white">{item.label}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <div>
-      <h3 class="text-sm font-semibold uppercase tracking-wider text-white">Contact</h3>
-      <ul class="mt-4 space-y-2 text-sm text-white/70">
-        <li><a href={contact.phoneHref} class="hover:text-white">{contact.phone}</a></li>
-        <li><a href={`mailto:${contact.salesEmail}`} class="hover:text-white">{contact.salesEmail}</a></li>
-        <li><a href={`mailto:${contact.serviceEmail}`} class="hover:text-white">{contact.serviceEmail}</a></li>
-        <li class="pt-2 not-italic">
-          {contact.address.line1}<br />
-          {contact.address.line2}, {contact.address.city}<br />
-          {contact.address.postcode}
-        </li>
-      </ul>
-    </div>
+<footer class="border-t border-black/15 bg-paper text-brand-ink">
+  <div class="container-content grid gap-10 py-12 md:grid-cols-4 md:py-14">
+    <div class="md:col-span-2"><Logo class="h-10 w-auto" /><p class="mt-5 max-w-md text-sm leading-relaxed text-slate-muted">{business.tagline}. {business.intro}</p></div>
+    <div><h3 class="text-xs font-semibold uppercase tracking-[0.12em] text-brand-ink">Explore</h3><ul class="mt-4 space-y-2 text-sm">{nav.map((item) => <li><a href={item.href} class="text-slate-muted transition hover:text-brand-red">{item.label}</a></li>)}</ul></div>
+    <div><h3 class="text-xs font-semibold uppercase tracking-[0.12em] text-brand-ink">Contact</h3><ul class="mt-4 space-y-2 text-sm text-slate-muted"><li><a href={contact.phoneHref} class="hover:text-brand-red">{contact.phone}</a></li><li><a href={`mailto:${contact.salesEmail}`} class="hover:text-brand-red">{contact.salesEmail}</a></li><li><a href={`mailto:${contact.serviceEmail}`} class="hover:text-brand-red">{contact.serviceEmail}</a></li><li class="pt-2">{contact.address.line1}<br />{contact.address.line2}, {contact.address.city}<br />{contact.address.postcode}</li></ul></div>
   </div>
-
-  <div class="border-t border-white/10">
-    <div class="container-content flex flex-col items-center justify-between gap-3 py-5 text-xs text-white/55 sm:flex-row">
-      <p>&copy; {year} {business.name}. All rights reserved.</p>
-      <p>{business.distributorLine}</p>
-    </div>
-  </div>
+  <div class="border-t border-black/15"><div class="container-content flex flex-col gap-2 py-5 text-xs text-slate-muted sm:flex-row sm:justify-between"><p>&copy; {year} {business.name}. All rights reserved.</p><p>{business.distributorLine}</p></div></div>
 </footer>

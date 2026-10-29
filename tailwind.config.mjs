@@ -4,33 +4,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Brand palette taken from the Direct Installations logo (red + black)
+        // Direct Installations brand, set against a product-gallery neutral palette.
         brand: {
           red: '#D81E27',
           'red-dark': '#B2161D',
           'red-light': '#E8464E',
-          black: '#1A1A1A',
-          ink: '#222222',
+          black: '#1D1D1F',
+          ink: '#1D1D1F',
         },
         slate: {
-          muted: '#4E4B66',
+          muted: '#6E6E73',
         },
-        paper: '#F6F6F4',
+        paper: '#F5F5F7',
       },
       fontFamily: {
-        sans: ['Roboto', 'system-ui', 'sans-serif'],
-        body: ['"Open Sans"', 'system-ui', 'sans-serif'],
+        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', 'Inter', 'Arial', 'sans-serif'],
+        body: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', 'Inter', 'Arial', 'sans-serif'],
       },
       maxWidth: {
         content: '1200px',
       },
       boxShadow: {
-        card: '0 10px 30px -12px rgba(0,0,0,0.18)',
-        'card-hover': '0 24px 50px -18px rgba(216,30,39,0.35)',
+        card: '0 1px 2px rgba(0, 0, 0, 0.05)',
+        'card-hover': '0 12px 30px rgba(0, 0, 0, 0.10)',
       },
       keyframes: {
         'fade-up': {
-          '0%': { opacity: '0', transform: 'translateY(24px)' },
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         'fade-in': {
@@ -39,11 +39,7 @@ export default {
         },
         float: {
           '0%,100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
-        'draw-line': {
-          '0%': { strokeDashoffset: '1000' },
-          '100%': { strokeDashoffset: '0' },
+          '50%': { transform: 'translateY(-8px)' },
         },
       },
       animation: {

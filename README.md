@@ -7,7 +7,7 @@ Rebuilt as a fast, modern, interactive static site with [Astro](https://astro.bu
 ## Tech stack
 
 - **Astro 4** — ships near-zero JavaScript; content rendered at build time
-- **Tailwind CSS 3** — brand design system (red/black, Roboto + Open Sans)
+- **Tailwind CSS 3** — Direct Installations red/black brand with a premium product-gallery visual system
 - **Static sitemap** — search-engine sitemap at `public/sitemap.xml`
 - Vanilla JS "islands" for interactivity (scroll reveal, counters, carousel, filters, mobile menu)
 

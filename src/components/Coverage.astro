@@ -1,64 +1,31 @@
 ---
 import { coverage } from '../data/site';
 ---
-<section class="bg-brand-black py-20 text-white lg:py-28">
+<section class="bg-paper py-20 text-brand-ink lg:py-28">
   <div class="container-content grid items-center gap-14 lg:grid-cols-2">
     <div class="reveal">
-      <p class="eyebrow text-brand-red-light">Where we work</p>
-      <h2 class="mt-3 text-3xl font-extrabold sm:text-4xl">Covering the North West &amp; beyond</h2>
-      <p class="mt-4 max-w-md text-white/70">
-        We supply and install across Manchester, the North West and North Wales, with specialist
-        servicing and repairs reaching much further afield.
-      </p>
-
-      <div class="mt-8 grid gap-6 sm:grid-cols-2">
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-          <h3 class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-brand-red-light">
-            <span class="h-2.5 w-2.5 rounded-full bg-brand-red"></span> Supply &amp; Installation
-          </h3>
-          <ul class="mt-3 space-y-1.5 text-sm text-white/80">
-            {coverage.installation.map((r) => <li>{r}</li>)}
-          </ul>
+      <p class="eyebrow">Where we work</p>
+      <h2 class="mt-4 max-w-lg text-4xl font-semibold leading-tight sm:text-5xl">Covering the North West and beyond.</h2>
+      <p class="mt-5 max-w-md text-lg leading-relaxed text-slate-muted">We supply and install across Manchester, the North West and North Wales, with specialist servicing and repairs reaching much further afield.</p>
+      <div class="mt-10 grid border-t border-black/15 sm:grid-cols-2">
+        <div class="border-b border-black/15 py-6 sm:border-b-0 sm:pr-7">
+          <p class="text-xs font-semibold uppercase tracking-[0.12em] text-brand-red">Supply &amp; installation</p>
+          <ul class="mt-4 space-y-2 text-sm text-brand-ink">{coverage.installation.map((r) => <li>{r}</li>)}</ul>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-          <h3 class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-white/90">
-            <span class="h-2.5 w-2.5 rounded-full bg-white/60"></span> Servicing &amp; Repairs
-          </h3>
-          <ul class="mt-3 space-y-1.5 text-sm text-white/80">
-            {coverage.servicing.map((r) => <li>{r}</li>)}
-          </ul>
+        <div class="border-b border-black/15 py-6 sm:border-b-0 sm:border-l sm:border-black/15 sm:pl-7">
+          <p class="text-xs font-semibold uppercase tracking-[0.12em] text-brand-red">Servicing &amp; repairs</p>
+          <ul class="mt-4 space-y-2 text-sm text-brand-ink">{coverage.servicing.map((r) => <li>{r}</li>)}</ul>
         </div>
       </div>
     </div>
 
-    <!-- Stylised, animated map of England & Wales -->
     <div class="reveal" data-delay="2">
-      <div class="relative mx-auto max-w-sm">
+      <div class="relative mx-auto max-w-sm rounded-[2rem] border border-black/10 bg-white p-5 sm:p-8">
         <svg viewBox="0 0 300 380" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Coverage map of Northern England and Wales">
-          <path
-            d="M150 10 L185 40 L205 35 L215 60 L240 80 L230 110 L250 140 L235 175 L250 210 L225 245 L235 285 L200 320 L205 355 L170 370 L150 340 L120 360 L95 335 L75 300 L55 270 L70 240 L50 210 L65 175 L55 140 L80 110 L70 75 L100 55 L110 30 Z"
-            fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"
-          />
-          <!-- Pulsing location pins -->
-          <g>
-            <circle cx="130" cy="150" r="7" fill="#D81E27">
-              <animate attributeName="r" values="7;11;7" dur="2.4s" repeatCount="indefinite" />
-              <animate attributeName="fill-opacity" values="1;0.5;1" dur="2.4s" repeatCount="indefinite" />
-            </circle>
-            <text x="145" y="154" fill="#fff" font-size="12" font-family="Roboto, sans-serif">Manchester</text>
-          </g>
-          <g>
-            <circle cx="95" cy="190" r="5" fill="#ffffff" fill-opacity="0.7">
-              <animate attributeName="r" values="5;8;5" dur="2.4s" begin="0.6s" repeatCount="indefinite" />
-            </circle>
-            <text x="30" y="194" fill="#fff" font-size="11" font-family="Roboto, sans-serif">N. Wales</text>
-          </g>
-          <g>
-            <circle cx="150" cy="235" r="5" fill="#ffffff" fill-opacity="0.7">
-              <animate attributeName="r" values="5;8;5" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
-            </circle>
-            <text x="162" y="239" fill="#fff" font-size="11" font-family="Roboto, sans-serif">Midlands</text>
-          </g>
+          <path d="M150 10 L185 40 L205 35 L215 60 L240 80 L230 110 L250 140 L235 175 L250 210 L225 245 L235 285 L200 320 L205 355 L170 370 L150 340 L120 360 L95 335 L75 300 L55 270 L70 240 L50 210 L65 175 L55 140 L80 110 L70 75 L100 55 L110 30 Z" fill="#F5F5F7" stroke="#B7B7BD" stroke-width="2" />
+          <g><circle cx="130" cy="150" r="7" fill="#D81E27"><animate attributeName="r" values="7;10;7" dur="2.4s" repeatCount="indefinite" /></circle><text x="145" y="154" fill="#1D1D1F" font-size="12" font-family="Arial, sans-serif">Manchester</text></g>
+          <g><circle cx="95" cy="190" r="5" fill="#1D1D1F" /><text x="30" y="194" fill="#6E6E73" font-size="11" font-family="Arial, sans-serif">N. Wales</text></g>
+          <g><circle cx="150" cy="235" r="5" fill="#1D1D1F" /><text x="162" y="239" fill="#6E6E73" font-size="11" font-family="Arial, sans-serif">Midlands</text></g>
         </svg>
       </div>
     </div>
