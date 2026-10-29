@@ -8,7 +8,7 @@ Rebuilt as a fast, modern, interactive static site with [Astro](https://astro.bu
 
 - **Astro 4** — ships near-zero JavaScript; content rendered at build time
 - **Tailwind CSS 3** — brand design system (red/black, Roboto + Open Sans)
-- **@astrojs/sitemap** — automatic `sitemap-index.xml`
+- **Static sitemap** — search-engine sitemap at `public/sitemap.xml`
 - Vanilla JS "islands" for interactivity (scroll reveal, counters, carousel, filters, mobile menu)
 
 ## Project structure
@@ -22,7 +22,7 @@ src/
   styles/global.css   Tailwind layers + reveal animation
 public/
   projects/        Placeholder project images (SVG) — swap for real photos
-  favicon.svg, robots.txt, _headers, _redirects
+  favicon.svg, robots.txt, sitemap.xml, _headers, _redirects
 ```
 
 ## Local development
