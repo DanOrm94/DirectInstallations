@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ServiceIcon from '../components/ServiceIcon.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { services } from '../data/site';
+---
+<Base title="Services | Direct Installations" description="VELFAC windows & doors, supply & installation, and specialist servicing & repairs across the North West, North Wales, Northern England, Wales and the Midlands.">
+  <PageHero
+    eyebrow="Our Services"
+    title="Supply, installation, servicing & repairs"
+    subtitle="Specialist support for VELFAC and Rationel windows and doors — from first consultation to long-term aftercare."
+  />
+
+  <div class="container-content py-16 lg:py-24">
+    <div class="space-y-16">
+      {services.map((service, i) => (
+        <section id={service.id} class="reveal grid scroll-mt-28 items-center gap-10 lg:grid-cols-2">
+          <div class={i % 2 === 1 ? 'lg:order-2' : ''}>
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-red/10 text-brand-red">
+              <ServiceIcon name={service.icon} />
+            </div>
+            <h2 class="mt-5 text-2xl font-extrabold text-brand-ink sm:text-3xl">{service.title}</h2>
+            <p class="mt-4 text-slate-muted">{service.description}</p>
+            <ul class="mt-6 space-y-3">
+              {service.points.map((point) => (
+                <li class="flex items-start gap-3">
+                  <svg class="mt-0.5 h-5 w-5 flex-none text-brand-red" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  <span class="text-brand-ink">{point}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="/contact" class="btn-primary mt-8">Enquire about {service.title}</a>
+          </div>
+          <div class={i % 2 === 1 ? 'lg:order-1' : ''}>
+            <div class="rounded-3xl border border-black/10 bg-gradient-to-br from-paper to-white p-8 shadow-card">
+              <svg viewBox="0 0 400 300" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="400" height="300" rx="12" fill="#f1efea" />
+                <rect x="60" y="40" width="280" height="220" rx="4" fill="#fff" stroke="#1A1A1A" stroke-width="5" />
+                <rect x="74" y="54" width="252" height="192" fill="#dfeaf5" />
+                <rect x="196" y="54" width="8" height="192" fill="#1A1A1A" />
+                <rect x="74" y="146" width="252" height="8" fill="#1A1A1A" />
+                <circle cx="330" cy="250" r="26" fill="#D81E27" />
+              </svg>
+            </div>
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+
+  <CtaBand />
+</Base>

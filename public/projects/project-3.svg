@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Placeholder project image">
+  <rect width="400" height="300" fill="#e7edf3"/>
+  <path d="M0 120 L200 40 L400 120 L400 300 L0 300 Z" fill="#d7ddd8"/>
+  <g stroke="#1A1A1A" stroke-width="5" fill="#ffffff">
+    <rect x="40" y="150" width="80" height="110" rx="3"/>
+    <rect x="160" y="150" width="80" height="110" rx="3"/>
+    <rect x="280" y="150" width="80" height="110" rx="3"/>
+  </g>
+  <g stroke="#1A1A1A" stroke-width="4">
+    <line x1="80" y1="150" x2="80" y2="260"/><line x1="200" y1="150" x2="200" y2="260"/><line x1="320" y1="150" x2="320" y2="260"/>
+  </g>
+  <rect x="300" y="250" width="60" height="6" rx="3" fill="#D81E27"/>
+  <text x="40" y="282" font-family="Roboto, sans-serif" font-size="15" font-weight="700" fill="#4E4B66">Full House Replacement</text>
+</svg>

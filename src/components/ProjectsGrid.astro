@@ -1,0 +1,79 @@
+---
+import { projects } from '../data/site';
+interface Props {
+  limit?: number;
+  filterable?: boolean;
+}
+const { limit, filterable = false } = Astro.props;
+const list = limit ? projects.slice(0, limit) : projects;
+const categories = ['All', ...Array.from(new Set(projects.map((p) => p.category)))];
+---
+{filterable && (
+  <div class="reveal mb-8 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Filter projects">
+    {categories.map((cat, i) => (
+      <button
+        class:list={[
+          'filter-btn rounded-full px-4 py-2 text-sm font-semibold transition',
+          i === 0 ? 'bg-brand-red text-white' : 'border border-black/15 text-brand-ink hover:border-brand-red hover:text-brand-red',
+        ]}
+        data-filter={cat}
+        aria-pressed={i === 0 ? 'true' : 'false'}
+      >
+        {cat}
+      </button>
+    ))}
+  </div>
+)}
+
+<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  {list.map((p, i) => (
+    <figure
+      class="project-card reveal group relative overflow-hidden rounded-3xl border border-black/10 bg-white shadow-card"
+      data-category={p.category}
+      data-delay={String((i % 3) + 1)}
+    >
+      <div class="aspect-[4/3] overflow-hidden">
+        <img
+          src={p.image}
+          alt={`${p.title} — ${p.location}`}
+          loading="lazy"
+          width="400"
+          height="300"
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      <figcaption class="flex items-center justify-between gap-3 p-5">
+        <div>
+          <h3 class="font-bold text-brand-ink">{p.title}</h3>
+          <p class="text-sm text-slate-muted">{p.location}</p>
+        </div>
+        <span class="flex-none rounded-full bg-brand-red/10 px-3 py-1 text-xs font-semibold text-brand-red">{p.category}</span>
+      </figcaption>
+    </figure>
+  ))}
+</div>
+
+{filterable && (
+  <script>
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const cards = document.querySelectorAll<HTMLElement>('.project-card');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        buttons.forEach((b) => {
+          const active = b === btn;
+          b.setAttribute('aria-pressed', String(active));
+          b.classList.toggle('bg-brand-red', active);
+          b.classList.toggle('text-white', active);
+          b.classList.toggle('border', !active);
+          b.classList.toggle('border-black/15', !active);
+          b.classList.toggle('text-brand-ink', !active);
+        });
+        cards.forEach((card) => {
+          const show = filter === 'All' || card.dataset.category === filter;
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  </script>
+)}

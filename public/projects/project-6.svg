@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Placeholder project image">
+  <rect width="400" height="300" fill="#eceae4"/>
+  <rect width="400" height="300" fill="#dfeaf5" opacity="0.5"/>
+  <g stroke="#1A1A1A" stroke-width="5" fill="#eaf2fb">
+    <rect x="40" y="60" width="70" height="190" rx="3"/>
+    <rect x="118" y="60" width="70" height="190" rx="3"/>
+    <rect x="196" y="60" width="70" height="190" rx="3"/>
+    <rect x="274" y="60" width="70" height="190" rx="3"/>
+  </g>
+  <circle cx="312" cy="210" r="8" fill="#D81E27"/>
+  <text x="40" y="282" font-family="Roboto, sans-serif" font-size="15" font-weight="700" fill="#4E4B66">Bi-fold &amp; Patio Doors</text>
+</svg>

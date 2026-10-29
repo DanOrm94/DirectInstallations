@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Placeholder project image">
+  <rect width="400" height="300" fill="#e7edf3"/>
+  <rect width="400" height="110" fill="#d7e2ee"/>
+  <rect y="210" width="400" height="90" fill="#cdd6cf"/>
+  <g stroke="#1A1A1A" stroke-width="6" fill="#ffffff">
+    <rect x="48" y="70" width="140" height="170" rx="4"/>
+    <rect x="212" y="70" width="140" height="170" rx="4"/>
+  </g>
+  <g stroke="#1A1A1A" stroke-width="5">
+    <line x1="118" y1="70" x2="118" y2="240"/><line x1="48" y1="155" x2="188" y2="155"/>
+    <line x1="282" y1="70" x2="282" y2="240"/><line x1="212" y1="155" x2="352" y2="155"/>
+  </g>
+  <rect x="300" y="250" width="60" height="6" rx="3" fill="#D81E27"/>
+  <text x="48" y="282" font-family="Roboto, sans-serif" font-size="15" font-weight="700" fill="#4E4B66">VELFAC New Build</text>
+</svg>

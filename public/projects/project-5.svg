@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Placeholder project image">
+  <rect width="400" height="300" fill="#e7edf3"/>
+  <rect y="190" width="400" height="110" fill="#cdd6cf"/>
+  <g stroke="#1A1A1A" stroke-width="6" fill="#eaf2fb">
+    <rect x="70" y="60" width="260" height="150" rx="4"/>
+  </g>
+  <g stroke="#1A1A1A" stroke-width="5">
+    <line x1="156" y1="60" x2="156" y2="210"/><line x1="244" y1="60" x2="244" y2="210"/><line x1="70" y1="135" x2="330" y2="135"/>
+  </g>
+  <rect x="270" y="222" width="60" height="6" rx="3" fill="#D81E27"/>
+  <text x="70" y="252" font-family="Roboto, sans-serif" font-size="15" font-weight="700" fill="#4E4B66">Rationel to VELFAC Upgrade</text>
+</svg>

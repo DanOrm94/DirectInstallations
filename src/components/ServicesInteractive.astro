@@ -1,0 +1,50 @@
+---
+import ServiceIcon from './ServiceIcon.astro';
+import { services } from '../data/site';
+---
+<section id="services" class="container-content py-20 lg:py-28">
+  <div class="reveal mx-auto max-w-2xl text-center">
+    <p class="eyebrow justify-center">Our Services</p>
+    <h2 class="mt-3 text-3xl font-extrabold text-brand-ink sm:text-4xl">
+      Everything for your VELFAC project
+    </h2>
+    <p class="mt-4 text-slate-muted">
+      Tap a service to see what we cover — from first consultation to long-term servicing.
+    </p>
+  </div>
+
+  <div class="mt-14 grid gap-6 lg:grid-cols-3">
+    {services.map((service, i) => (
+      <article
+        class="reveal group relative flex flex-col overflow-hidden rounded-3xl border border-black/10 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-red/40 hover:shadow-card-hover"
+        data-delay={String(i + 1)}
+      >
+        <span class="absolute right-0 top-0 h-24 w-24 -translate-y-8 translate-x-8 rounded-full bg-brand-red/5 transition-transform duration-500 group-hover:scale-150"></span>
+        <div class="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-red/10 text-brand-red transition-colors duration-300 group-hover:bg-brand-red group-hover:text-white">
+          <ServiceIcon name={service.icon} />
+        </div>
+        <h3 class="relative mt-6 text-xl font-bold text-brand-ink">{service.title}</h3>
+        <p class="relative mt-3 text-slate-muted">{service.short}</p>
+
+        <!-- Expanding detail -->
+        <div class="relative grid grid-rows-[0fr] transition-all duration-500 ease-out group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr]">
+          <div class="overflow-hidden">
+            <ul class="mt-5 space-y-2 border-t border-black/5 pt-5">
+              {service.points.map((point) => (
+                <li class="flex items-start gap-2 text-sm text-brand-ink">
+                  <svg class="mt-0.5 h-4 w-4 flex-none text-brand-red" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <a href="/services#{service.id}" class="relative mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-red">
+          Learn more
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </a>
+      </article>
+    ))}
+  </div>
+</section>

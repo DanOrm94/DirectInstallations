@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects
+# Legacy WordPress-style paths -> new pages
+/about-us    /about    301
+/home        /         301

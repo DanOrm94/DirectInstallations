@@ -1,0 +1,34 @@
+---
+// Recreated Direct Installations wordmark (red "Direct", black "Installations",
+// red roof with a window pane motif) as inline SVG for crisp scaling.
+interface Props {
+  class?: string;
+  mono?: boolean; // single-colour (for dark backgrounds)
+}
+const { class: className = '', mono = false } = Astro.props;
+const red = mono ? 'currentColor' : '#D81E27';
+const black = mono ? 'currentColor' : '#1A1A1A';
+---
+<svg
+  class={className}
+  viewBox="0 0 300 118"
+  role="img"
+  aria-label="Direct Installations"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Roof -->
+  <path d="M150 6 L286 60 L270 60 L150 22 L30 60 L14 60 Z" fill={red} />
+  <!-- Window pane motif under the apex -->
+  <g fill={black}>
+    <rect x="184" y="30" width="15" height="15" rx="1.5" />
+    <rect x="202" y="30" width="15" height="15" rx="1.5" />
+    <rect x="184" y="48" width="15" height="15" rx="1.5" />
+    <rect x="202" y="48" width="15" height="15" rx="1.5" />
+  </g>
+  <!-- Oversized D (red) + I (black) initials -->
+  <text x="6" y="92" font-family="Roboto, sans-serif" font-size="70" font-weight="800" fill={red}>D</text>
+  <text x="60" y="92" font-family="Roboto, sans-serif" font-size="70" font-weight="800" fill={black}>I</text>
+  <!-- Word marks -->
+  <text x="82" y="62" font-family="Roboto, sans-serif" font-size="30" font-weight="800" letter-spacing="1" fill={red}>irect</text>
+  <text x="82" y="100" font-family="Roboto, sans-serif" font-size="30" font-weight="800" letter-spacing="0.5" fill={black}>nstallations</text>
+</svg>

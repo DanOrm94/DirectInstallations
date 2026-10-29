@@ -1,0 +1,6 @@
+# Cloudflare Pages / Wrangler config for optional CLI deploys.
+# Dashboard deploys do not require this file, but it lets you run:
+#   npx wrangler pages deploy dist
+name = "direct-installations"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-11-01"

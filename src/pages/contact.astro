@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { contact } from '../data/site';
+
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(contact.mapsQuery)}&output=embed`;
+---
+<Base title="Contact | Direct Installations Manchester" description="Contact Direct Installations for VELFAC supply, installation, servicing and repairs across the North West, North Wales and beyond.">
+  <PageHero
+    eyebrow="Contact us"
+    title="Let's talk about your project"
+    subtitle="We install across the North West and North Wales, with servicing and repair coverage throughout Northern England, Wales and the Midlands."
+  />
+
+  <section class="container-content py-16 lg:py-24">
+    <div class="grid gap-10 lg:grid-cols-5">
+      <!-- Contact details -->
+      <div class="reveal lg:col-span-2">
+        <h2 class="text-2xl font-extrabold text-brand-ink">Contact details</h2>
+
+        <ul class="mt-8 space-y-6">
+          <li class="flex items-start gap-4">
+            <span class="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brand-red/10 text-brand-red">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.3 5.3C2.3 4 3.3 3 4.6 3h2c.5 0 1 .4 1.1.9l1 3.6c.1.5 0 1-.4 1.3L6.7 10c.9 2 2.4 3.5 4.4 4.4l1.2-1.6c.3-.4.8-.5 1.3-.4l3.6 1c.5.1.9.6.9 1.1v2c0 1.3-1 2.3-2.3 2.3C9 18.8 2.3 12 2.3 5.3Z" /></svg>
+            </span>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-slate-muted">Phone</p>
+              <a href={contact.phoneHref} class="text-lg font-bold text-brand-ink hover:text-brand-red">{contact.phone}</a>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brand-red/10 text-brand-red">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9 6 9-6" /><rect x="3" y="5" width="18" height="14" rx="2" /></svg>
+            </span>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-slate-muted">Supply &amp; Installation</p>
+              <a href={`mailto:${contact.salesEmail}`} class="font-bold text-brand-ink hover:text-brand-red">{contact.salesEmail}</a>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brand-red/10 text-brand-red">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9 6 9-6" /><rect x="3" y="5" width="18" height="14" rx="2" /></svg>
+            </span>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-slate-muted">Servicing &amp; Repairs</p>
+              <a href={`mailto:${contact.serviceEmail}`} class="font-bold text-brand-ink hover:text-brand-red">{contact.serviceEmail}</a>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brand-red/10 text-brand-red">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z" /><circle cx="12" cy="10" r="2.5" /></svg>
+            </span>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-slate-muted">Address</p>
+              <address class="not-italic font-bold text-brand-ink">
+                {contact.address.line1}<br />
+                {contact.address.line2}, {contact.address.city}<br />
+                {contact.address.postcode}
+              </address>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Enquiry panel (email/phone) -->
+      <div class="reveal lg:col-span-3" data-delay="1">
+        <div class="rounded-3xl border border-black/10 bg-white p-8 shadow-card">
+          <h2 class="text-2xl font-extrabold text-brand-ink">Send us a message</h2>
+          <p class="mt-3 text-slate-muted">
+            Our online contact form is currently down for maintenance. The quickest way to reach us is by email or phone — choose the right team below and we'll get back to you.
+          </p>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            <a href={`mailto:${contact.salesEmail}?subject=Supply%20%26%20Installation%20enquiry`} class="group rounded-2xl border border-black/10 p-6 transition hover:border-brand-red hover:shadow-card">
+              <p class="text-xs font-semibold uppercase tracking-wide text-brand-red">Supply &amp; Installation</p>
+              <p class="mt-2 font-bold text-brand-ink group-hover:text-brand-red">{contact.salesEmail}</p>
+              <p class="mt-2 text-sm text-slate-muted">New windows, doors and installation projects.</p>
+            </a>
+            <a href={`mailto:${contact.serviceEmail}?subject=Servicing%20%26%20Repairs%20enquiry`} class="group rounded-2xl border border-black/10 p-6 transition hover:border-brand-red hover:shadow-card">
+              <p class="text-xs font-semibold uppercase tracking-wide text-brand-red">Servicing &amp; Repairs</p>
+              <p class="mt-2 font-bold text-brand-ink group-hover:text-brand-red">{contact.serviceEmail}</p>
+              <p class="mt-2 text-sm text-slate-muted">Repairs, refurbishment and aftercare.</p>
+            </a>
+          </div>
+
+          <div class="mt-6 flex flex-wrap items-center gap-3 rounded-2xl bg-paper p-5">
+            <span class="text-sm font-semibold text-brand-ink">Prefer to talk?</span>
+            <a href={contact.phoneHref} class="btn-primary">Call {contact.phone}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="reveal mt-12 overflow-hidden rounded-3xl border border-black/10 shadow-card" data-delay="2">
+      <iframe
+        title="Map showing Direct Installations, Denton, Manchester"
+        src={mapSrc}
+        width="100%"
+        height="420"
+        style="border:0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </section>
+</Base>
