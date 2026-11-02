@@ -17,36 +17,20 @@ import { business } from '../data/site';
     </div>
   </div>
 
-  <!-- Product-gallery illustration: an original VELFAC window study, not product photography. -->
+  <!-- Product-gallery hero: real VELFAC window photography -->
   <div class="container-content mt-14 animate-fade-in sm:mt-20" style="animation-delay:.28s">
-    <div class="relative overflow-hidden rounded-[2rem] bg-paper px-5 pt-10 sm:px-12 sm:pt-14 lg:px-24 lg:pt-20">
-      <div class="absolute left-1/2 top-7 -translate-x-1/2 text-center sm:top-10">
+    <div class="relative overflow-hidden rounded-[2rem] bg-paper px-5 pb-16 pt-12 sm:px-12 sm:pt-14 lg:px-24">
+      <div class="text-center">
         <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-red">VELFAC Composite</p>
         <p class="mt-1 text-xs text-slate-muted">Aluminium exterior · timber interior</p>
       </div>
-      <svg viewBox="0 0 1000 540" class="mx-auto block w-full max-w-4xl" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a four-pane VELFAC window">
-        <defs>
-          <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#E8F2F9" />
-            <stop offset="1" stop-color="#C9DCEB" />
-          </linearGradient>
-          <linearGradient id="heroReflection" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#FFF" stop-opacity="0.58" />
-            <stop offset="1" stop-color="#FFF" stop-opacity="0" />
-          </linearGradient>
-        </defs>
-        <rect x="75" y="80" width="850" height="410" rx="3" fill="#1D1D1F" />
-        <rect x="87" y="92" width="826" height="386" fill="#FFF" />
-        <rect x="102" y="107" width="796" height="356" fill="url(#heroSky)" />
-        <path d="M102 390 C250 330 340 420 485 365 C630 310 745 390 898 325 V463 H102Z" fill="#B9CCBD" opacity="0.86" />
-        <path d="M102 430 C270 360 350 450 505 388 C650 330 755 416 898 360 V463 H102Z" fill="#9BB09D" opacity="0.68" />
-        <rect x="296" y="107" width="16" height="356" fill="#1D1D1F" />
-        <rect x="492" y="107" width="16" height="356" fill="#1D1D1F" />
-        <rect x="688" y="107" width="16" height="356" fill="#1D1D1F" />
-        <path d="M122 112 H255 L145 453 H102 V340Z" fill="url(#heroReflection)" />
-        <path d="M328 112 H435 L330 385 L312 385 V170Z" fill="url(#heroReflection)" opacity="0.7" />
-        <path d="M522 112 H630 L530 370 L508 370 V162Z" fill="url(#heroReflection)" opacity="0.55" />
-      </svg>
+      <img
+        src="/velfac.jpg"
+        alt="VELFAC composite window with a dark aluminium exterior and timber interior"
+        width="295"
+        height="677"
+        class="mx-auto mt-8 block h-auto w-auto max-h-[460px] drop-shadow-xl sm:max-h-[520px]"
+      />
       <div class="absolute bottom-0 left-0 right-0 flex justify-between border-t border-black/10 bg-white/80 px-5 py-4 text-left backdrop-blur sm:px-8">
         <p class="text-xs text-slate-muted"><span class="font-semibold text-brand-ink">20+ years</span> with DOVISTA products</p>
         <p class="hidden text-xs text-slate-muted sm:block">Visit our Denton showroom by appointment</p>
