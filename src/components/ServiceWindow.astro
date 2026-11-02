@@ -1,0 +1,103 @@
+---
+// Interactive VELFAC-style window illustration.
+// The top sash opens and closes on a gentle loop, and on hover/focus/tap.
+interface Props {
+  class?: string;
+  index?: number; // offsets the animation so multiple windows don't move in lockstep
+}
+const { class: className = '', index = 0 } = Astro.props;
+const delay = `${(index % 3) * 0.9}s`;
+---
+<button
+  type="button"
+  class:list={['service-window group block w-full cursor-pointer rounded-[2rem] bg-paper p-8 sm:p-12', className]}
+  aria-pressed="false"
+  aria-label="Toggle the window open and closed"
+>
+  <svg viewBox="0 0 400 300" class="w-full [perspective:900px]" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="svGlass" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#EAF2FB" />
+        <stop offset="1" stop-color="#CFE0F2" />
+      </linearGradient>
+      <linearGradient id="svSash" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#F3F7FC" />
+        <stop offset="1" stop-color="#D6E4F2" />
+      </linearGradient>
+    </defs>
+
+    <!-- Backing wall / aperture -->
+    <rect width="400" height="300" rx="12" fill="#E9EAEC" />
+
+    <!-- Fixed outer frame -->
+    <rect x="60" y="40" width="280" height="220" rx="3" fill="#FFF" stroke="#1D1D1F" stroke-width="5" />
+
+    <!-- Lower fixed pane -->
+    <rect x="74" y="150" width="252" height="96" fill="url(#svGlass)" />
+
+    <!-- Reveal behind the top sash (what you see when it opens) -->
+    <rect x="74" y="54" width="252" height="92" fill="#C3D4E6" />
+    <rect x="74" y="54" width="252" height="92" fill="#1D1D1F" opacity="0.08" />
+
+    <!-- Top mullion / hinge line -->
+    <rect x="74" y="146" width="252" height="8" fill="#1D1D1F" />
+
+    <!-- Opening TOP SASH (rotates on the mullion like a top-hung window) -->
+    <g class="sash" style={`--sv-delay:${delay}`}>
+      <rect x="74" y="54" width="252" height="92" fill="url(#svSash)" stroke="#1D1D1F" stroke-width="5" />
+      <!-- glass sheen -->
+      <path d="M90 60 L150 60 L104 140 L84 140 Z" fill="#FFF" opacity="0.45" />
+      <!-- handle -->
+      <rect x="192" y="60" width="16" height="5" rx="2.5" fill="#1D1D1F" />
+    </g>
+
+    <!-- Accent dot -->
+    <circle cx="330" cy="250" r="18" fill="#D81E27" />
+  </svg>
+</button>
+
+<style>
+  .service-window svg { display: block; }
+
+  /* The sash hinges at its bottom edge (the mullion), tilting toward the viewer. */
+  .sash {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: sv-breathe 6s ease-in-out infinite;
+    animation-delay: var(--sv-delay, 0s);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  /* Hover / focus / pressed pause the loop and hold it open for a stronger cue. */
+  .service-window:hover .sash,
+  .service-window:focus-visible .sash,
+  .service-window[aria-pressed='true'] .sash {
+    animation: none;
+    transform: perspective(900px) rotateX(-32deg) translateY(-2px);
+  }
+
+  @keyframes sv-breathe {
+    0%, 72%, 100% { transform: perspective(900px) rotateX(0deg); }
+    40% { transform: perspective(900px) rotateX(-26deg) translateY(-1px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sash { animation: none; transition: none; }
+    .service-window:hover .sash,
+    .service-window:focus-visible .sash,
+    .service-window[aria-pressed='true'] .sash {
+      transform: perspective(900px) rotateX(-20deg);
+    }
+  }
+</style>
+
+<script>
+  // Tap / click toggles a held-open state (useful on touch devices).
+  document.querySelectorAll<HTMLButtonElement>('.service-window').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', String(!open));
+    });
+  });
+</script>
