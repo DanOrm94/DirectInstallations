@@ -163,6 +163,16 @@ export const projects: Project[] = [
       { src: '/3acresfield.jpg', alt: 'Detail of VELFAC windows at Acresfield, Manchester' },
     ],
   },
+  {
+    title: 'Barn A, Warrington',
+    location: 'Warrington',
+    description: 'Supply and installation of VELFAC windows and doors.',
+    images: [
+      { src: '/barna.jpg', alt: 'Barn A, Warrington exterior with VELFAC windows and doors' },
+      { src: '/barna2.jpg', alt: 'Barn A, Warrington building with VELFAC windows' },
+      { src: '/barna3.jpg', alt: 'Detail of VELFAC windows and doors at Barn A, Warrington' },
+    ],
+  },
 ];
 
 export const nav = [
