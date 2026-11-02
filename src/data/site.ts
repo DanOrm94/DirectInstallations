@@ -137,8 +137,68 @@ export const projects: Project[] = [
 export const nav = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
+  { label: 'Opening Functions', href: '/velfac-windows-opening-functions' },
   { label: 'Projects', href: '/projects' },
   { label: 'About', href: '/about' },
   { label: 'Showroom', href: '/showroom' },
   { label: 'Contact', href: '/contact' },
+];
+
+export type OpeningFunction = {
+  name: string;
+  group: 'Windows' | 'Doors';
+  description: string;
+  image: string;
+};
+
+// VELFAC opening functions. Images supplied in /public; descriptions summarise the product specs.
+export const openingFunctions: OpeningFunction[] = [
+  {
+    name: 'Fixed Casement',
+    group: 'Windows',
+    description: 'Used as a light source, fixed windows share the same slim profile as opening sashes.',
+    image: '/Fixed-Casement.png',
+  },
+  {
+    name: 'Side Hung',
+    group: 'Windows',
+    description: 'Opens up to 90° and can form part of a fire escape strategy.',
+    image: '/Side-Hung-1.png',
+  },
+  {
+    name: 'Side Guided',
+    group: 'Windows',
+    description: 'A side-guided sash that slides open, allowing both faces of the glass to be cleaned from inside.',
+    image: '/Side-Guided.png',
+  },
+  {
+    name: 'Casement Door',
+    group: 'Doors',
+    description: 'A full-height outward or inward opening door with the same slim VELFAC profile.',
+    image: '/Casement-door.png',
+  },
+  {
+    name: 'Sliding Door',
+    group: 'Doors',
+    description: 'Up to 2.5m free opening, available with a standard (72mm) or low (25mm) threshold.',
+    image: '/Sliding-Door.png',
+  },
+  {
+    name: 'Bi-folding Door',
+    group: 'Doors',
+    description: 'Folds back to open up a wide span, connecting inside and outside spaces.',
+    image: '/Bi-folding-door.png',
+  },
+  {
+    name: 'Entrance Door',
+    group: 'Doors',
+    description: 'A secure, well-insulated entrance door finished to match your windows.',
+    image: '/Rebo-Entrance-Door.png',
+  },
+  {
+    name: 'Patio Door',
+    group: 'Doors',
+    description: 'A sliding patio door delivering large glazed areas and easy access.',
+    image: '/Ribo-Patio-Door.png',
+  },
 ];

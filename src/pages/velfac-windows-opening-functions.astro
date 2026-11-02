@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { openingFunctions } from '../data/site';
+---
+<Base
+  title="VELFAC Windows Opening Functions | Direct Installations"
+  description="Explore the VELFAC window and door opening functions, from fixed casements and side-hung windows to sliding, bi-folding, entrance and patio doors."
+>
+  <PageHero
+    eyebrow="VELFAC"
+    title="Windows opening functions."
+    subtitle="A range of opening styles for VELFAC windows and doors, each built on the same slim, consistent profile."
+  />
+
+  <section class="container-content py-16 lg:py-24">
+    <div class="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+      {openingFunctions.map((fn, i) => (
+        <article class="reveal group" data-delay={String((i % 3) + 1)}>
+          <div class="flex aspect-square items-center justify-center overflow-hidden rounded-[1.5rem] bg-paper p-8">
+            <img
+              src={fn.image}
+              alt={`VELFAC ${fn.name} opening function`}
+              loading="lazy"
+              width="266"
+              height="274"
+              class="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div class="mt-5 border-t border-black/15 pt-5">
+            <div class="flex items-center justify-between gap-3">
+              <h2 class="text-lg font-semibold text-brand-ink">{fn.name}</h2>
+              <span class="text-xs font-medium text-brand-red">{fn.group}</span>
+            </div>
+            <p class="mt-2 text-sm leading-relaxed text-slate-muted">{fn.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="reveal mt-16 border-l-2 border-brand-red pl-4 text-sm leading-relaxed text-slate-muted">
+      Not sure which opening function suits your project? Visit our Denton showroom or
+      <a href="/contact" class="font-medium text-brand-ink underline-offset-4 hover:text-brand-red hover:underline">get in touch</a>
+      and our team will talk you through the options.
+    </p>
+  </section>
+
+  <CtaBand />
+</Base>
