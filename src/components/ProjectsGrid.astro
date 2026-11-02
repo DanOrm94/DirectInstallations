@@ -1,15 +1,41 @@
 ---
 import { projects } from '../data/site';
-interface Props { limit?: number; filterable?: boolean; }
-const { limit, filterable = false } = Astro.props;
+interface Props {
+  limit?: number;
+}
+const { limit } = Astro.props;
 const list = limit ? projects.slice(0, limit) : projects;
-const categories = ['All', ...Array.from(new Set(projects.map((p) => p.category)))];
 ---
-{filterable && <div class="reveal mb-12 flex flex-wrap justify-center gap-5 border-b border-black/15 pb-6" role="tablist" aria-label="Filter projects">{categories.map((cat, i) => <button class:list={["filter-btn border-b pb-1 text-sm font-medium transition", i === 0 ? 'border-brand-red text-brand-red' : 'border-transparent text-slate-muted hover:text-brand-ink']} data-filter={cat} aria-pressed={i === 0 ? 'true' : 'false'}>{cat}</button>)}</div>}
-<div class="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-  {list.map((p, i) => <figure class="project-card reveal group" data-category={p.category} data-delay={String((i % 3) + 1)}><div class="aspect-[4/3] overflow-hidden rounded-2xl bg-paper"><img src={p.image} alt={`${p.title} — ${p.location}`} loading="lazy" width="400" height="300" class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" /></div><figcaption class="mt-4 flex items-start justify-between gap-3"><div><h3 class="font-semibold text-brand-ink">{p.title}</h3><p class="mt-1 text-sm text-slate-muted">{p.location}</p></div><span class="text-xs font-medium text-brand-red">{p.category}</span></figcaption></figure>)}
+<div class="space-y-16 lg:space-y-24">
+  {list.map((project, i) => (
+    <article class="reveal" data-delay={String((i % 3) + 1)}>
+      <header class="max-w-3xl">
+        <h2 class="text-3xl font-semibold leading-tight text-brand-ink sm:text-4xl">{project.title}</h2>
+        <p class="mt-3 text-lg leading-relaxed text-slate-muted">{project.description}</p>
+        {project.client && (
+          <p class="mt-4 text-sm text-slate-muted">
+            <span class="font-medium text-brand-ink">Client:</span> {project.client}
+          </p>
+        )}
+      </header>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {project.images.map((img) => (
+          <figure class="group overflow-hidden rounded-2xl bg-paper">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                decoding="async"
+                width="2560"
+                height="1440"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            </div>
+          </figure>
+        ))}
+      </div>
+    </article>
+  ))}
 </div>
-{filterable && <script>
-  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn'); const cards = document.querySelectorAll<HTMLElement>('.project-card');
-  buttons.forEach((btn) => btn.addEventListener('click', () => { const filter = btn.dataset.filter; buttons.forEach((b) => { const active = b === btn; b.setAttribute('aria-pressed', String(active)); b.classList.toggle('border-brand-red', active); b.classList.toggle('text-brand-red', active); b.classList.toggle('border-transparent', !active); b.classList.toggle('text-slate-muted', !active); }); cards.forEach((card) => { card.style.display = filter === 'All' || card.dataset.category === filter ? '' : 'none'; }); }));
-</script>}

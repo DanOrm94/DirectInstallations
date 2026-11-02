@@ -117,21 +117,42 @@ export const coverage = {
   servicing: ['Northern England', 'Wales', 'The Midlands'],
 } as const;
 
+export type ProjectImage = {
+  src: string;
+  alt: string;
+};
+
 export type Project = {
   title: string;
   location: string;
-  category: 'Windows' | 'Doors' | 'Servicing';
-  // Placeholder images live in /public/projects — swap these for real photos.
-  image: string;
+  description: string;
+  client?: string;
+  images: ProjectImage[];
 };
 
+// Recent VELFAC and Rationel window and door installations.
 export const projects: Project[] = [
-  { title: 'Aluminium VELFAC New Build', location: 'Cheshire', category: 'Windows', image: '/projects/project-1.svg' },
-  { title: 'Sliding Door Refurbishment', location: 'Manchester', category: 'Servicing', image: '/projects/project-2.svg' },
-  { title: 'Full House Window Replacement', location: 'North Wales', category: 'Windows', image: '/projects/project-3.svg' },
-  { title: 'Composite Entrance Doors', location: 'Stockport', category: 'Doors', image: '/projects/project-4.svg' },
-  { title: 'Rationel to VELFAC Upgrade', location: 'Lancashire', category: 'Windows', image: '/projects/project-5.svg' },
-  { title: 'Bi-fold & Patio Doors', location: 'Denton', category: 'Doors', image: '/projects/project-6.svg' },
+  {
+    title: 'House of Social, First Street, Manchester',
+    location: 'First Street, Manchester',
+    description: 'Student residence in central Manchester, fitted with VELFAC windows throughout.',
+    client: 'Renaker Build',
+    images: [
+      { src: '/house of social.jpg', alt: 'House of Social student residence facade, First Street, Manchester' },
+      { src: '/house of social 2.jpg', alt: 'House of Social building exterior with VELFAC windows' },
+      { src: '/3.jpg', alt: 'Close-up of VELFAC windows at House of Social, Manchester' },
+    ],
+  },
+  {
+    title: 'Cotter Street, Manchester',
+    location: 'Cotter Street, Manchester',
+    description: 'Residential development fitted with VELFAC windows and doors.',
+    images: [
+      { src: '/cotter street.jpg', alt: 'Cotter Street residential development exterior' },
+      { src: '/cotter street 2.jpg', alt: 'Cotter Street building with VELFAC windows' },
+      { src: '/cotter street 3.jpg', alt: 'Detail of VELFAC windows at Cotter Street, Manchester' },
+    ],
+  },
 ];
 
 export const nav = [
