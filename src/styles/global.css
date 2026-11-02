@@ -57,6 +57,22 @@
     @apply border-t border-black/15;
   }
 
+  /* Frosted "glass window" surround — translucent pane, hairline frame, soft top highlight */
+  .glass-pane {
+    @apply relative rounded-full border border-white/60 bg-white/50 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.05)] backdrop-blur-md;
+  }
+
+  /* Faint mullion cross, like window panes, layered over a glass element */
+  .glass-mullion::before {
+    content: '';
+    @apply pointer-events-none absolute inset-0 rounded-full opacity-[0.12];
+    background-image:
+      linear-gradient(to right, currentColor 1px, transparent 1px),
+      linear-gradient(to bottom, currentColor 1px, transparent 1px);
+    background-position: center;
+    background-size: 50% 50%;
+  }
+
   .product-kicker {
     @apply text-sm font-medium tracking-[-0.01em] text-slate-muted;
   }
