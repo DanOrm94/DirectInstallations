@@ -12,8 +12,7 @@ import { services } from '../data/site';
   <div class="mt-16 grid border-t border-black/15 lg:grid-cols-3">
     {services.map((service, i) => (
       <article class:list={['reveal group border-b border-black/15 px-0 py-9 lg:border-b-0 lg:py-12', i > 0 ? 'lg:border-l lg:pl-8' : 'lg:pr-8']} data-delay={String(i + 1)}>
-        <div class="flex items-center justify-between">
-          <span class="text-sm font-medium text-brand-red">0{i + 1}</span>
+        <div class="flex items-center justify-end">
           <div class="flex h-10 w-10 items-center justify-center rounded-full bg-paper text-brand-ink transition group-hover:bg-brand-red group-hover:text-white">
             <ServiceIcon name={service.icon} class="h-5 w-5" />
           </div>
