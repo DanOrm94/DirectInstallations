@@ -153,6 +153,16 @@ export const projects: Project[] = [
       { src: '/cotter street 3.jpg', alt: 'Detail of VELFAC windows at Cotter Street, Manchester' },
     ],
   },
+  {
+    title: 'Acresfield, Manchester',
+    location: 'Acresfield, Manchester',
+    description: 'Residential development fitted with VELFAC windows and doors.',
+    images: [
+      { src: '/acresfield.jpg', alt: 'Acresfield residential development exterior' },
+      { src: '/2acresfield.jpg', alt: 'Acresfield building with VELFAC windows' },
+      { src: '/3acresfield.jpg', alt: 'Detail of VELFAC windows at Acresfield, Manchester' },
+    ],
+  },
 ];
 
 export const nav = [
