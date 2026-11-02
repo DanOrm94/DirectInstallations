@@ -10,9 +10,9 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       <Logo class="h-8 w-auto sm:h-9" />
     </a>
 
-    <nav class="glass-pane glass-mullion hidden items-center gap-1 px-2 py-1.5 text-brand-ink lg:flex" aria-label="Primary">
+    <nav class="nav-pill hidden items-center gap-1 p-1 lg:flex" aria-label="Primary">
       {nav.map((item) => (
-        <a href={item.href} class:list={['rounded-full px-3 py-1.5 text-xs font-medium transition-colors', isActive(item.href) ? 'bg-white/80 text-brand-red shadow-sm' : 'text-brand-ink hover:text-brand-red']} aria-current={isActive(item.href) ? 'page' : undefined}>
+        <a href={item.href} class:list={['rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors', isActive(item.href) ? 'bg-white text-brand-ink shadow-sm' : 'text-slate-muted hover:text-brand-ink']} aria-current={isActive(item.href) ? 'page' : undefined}>
           {item.label}
         </a>
       ))}
@@ -20,7 +20,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 
     <div class="hidden items-center gap-4 md:flex">
       <a href={contact.phoneHref} class="text-xs font-medium text-brand-ink hover:text-brand-red">{contact.phone}</a>
-      <a href="/contact" class="glass-pane glass-mullion inline-flex items-center justify-center px-5 py-2 text-xs font-medium text-brand-ink transition-all duration-200 hover:scale-[1.02] hover:text-brand-red">Get a quote</a>
+      <a href="/contact" class="btn-pill px-4 py-2 text-xs">Get a quote</a>
     </div>
 
     <button id="menu-toggle" class="inline-flex items-center justify-center p-2 text-brand-ink lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
