@@ -21,6 +21,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://directinstallations.co.uk/showroom/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://directinstallations.co.uk/contact/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>

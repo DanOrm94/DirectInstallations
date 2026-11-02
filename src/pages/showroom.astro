@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { contact } from '../data/site';
+
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(contact.mapsQuery)}&output=embed`;
+
+const steps = [
+  { title: 'Get in touch', detail: 'Call or email to arrange a convenient time. Visits are by appointment so we can give you our full attention.' },
+  { title: 'See VELFAC in person', detail: 'View selected VELFAC windows and doors, feel the materials and finishes, and compare options side by side.' },
+  { title: 'Talk through your project', detail: 'Discuss sizes, configurations, timescales and servicing with our experienced team, and leave with clear next steps.' },
+];
+
+const expect = [
+  'Selected VELFAC composite windows and doors on display',
+  'Aluminium exterior and timber interior finishes to compare',
+  'Expert advice on supply, installation and aftercare',
+  'Guidance on the Rationel to VELFAC Classic transition',
+];
+---
+<Base
+  title="Showroom | Direct Installations Denton, Manchester"
+  description="Visit the Direct Installations showroom in Denton, Manchester by appointment to view selected VELFAC windows and doors and get expert advice."
+>
+  <PageHero
+    eyebrow="Our showroom"
+    title="See VELFAC in person."
+    subtitle="Visit our Denton showroom by appointment to explore selected VELFAC products and talk through your project with our team."
+  />
+
+  <section class="container-content py-16 lg:py-24">
+    <div class="grid gap-16 lg:grid-cols-3">
+      <div class="reveal lg:col-span-2">
+        <p class="max-w-3xl text-xl leading-relaxed tracking-[-0.01em] text-brand-ink">
+          Based in Denton, Manchester, our showroom is the best place to experience VELFAC quality first-hand.
+          Appointments give you dedicated time with our experienced team, away from the showroom floor rush, to
+          get honest, expert advice for your home or project.
+        </p>
+
+        <h2 class="mt-16 text-3xl font-semibold">What to expect</h2>
+        <ul class="mt-6 grid gap-3 border-t border-black/15 pt-6 sm:grid-cols-2">
+          {expect.map((item) => (
+            <li class="text-sm leading-relaxed text-brand-ink">{item}</li>
+          ))}
+        </ul>
+
+        <h2 class="mt-16 text-3xl font-semibold">How a visit works</h2>
+        <ol class="mt-8 divide-y divide-black/15 border-t border-black/15">
+          {steps.map((step, i) => (
+            <li class="reveal flex gap-5 py-6" data-delay={String((i % 3) + 1)}>
+              <span class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-paper text-sm font-medium text-brand-red">
+                {i + 1}
+              </span>
+              <div>
+                <h3 class="font-semibold text-brand-ink">{step.title}</h3>
+                <p class="mt-2 max-w-xl text-sm leading-relaxed text-slate-muted">{step.detail}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <aside class="reveal" data-delay="2">
+        <div class="border-t border-black/15 pt-7 lg:sticky lg:top-24">
+          <p class="eyebrow">Plan your visit</p>
+          <h2 class="mt-4 text-3xl font-semibold">By appointment</h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate-muted">
+            Contact us to book a time that suits you. We'll confirm your appointment and answer any questions before you arrive.
+          </p>
+
+          <dl class="mt-8 divide-y divide-black/15 border-t border-black/15 text-sm">
+            <div class="py-4">
+              <dt class="text-xs font-semibold uppercase tracking-[0.12em] text-brand-red">Address</dt>
+              <dd class="mt-2 not-italic leading-relaxed text-brand-ink">
+                {contact.address.line1}<br />
+                {contact.address.line2}, {contact.address.city}<br />
+                {contact.address.postcode}
+              </dd>
+            </div>
+            <div class="py-4">
+              <dt class="text-xs font-semibold uppercase tracking-[0.12em] text-brand-red">Phone</dt>
+              <dd class="mt-2">
+                <a href={contact.phoneHref} class="font-medium text-brand-ink hover:text-brand-red">{contact.phone}</a>
+              </dd>
+            </div>
+            <div class="py-4">
+              <dt class="text-xs font-semibold uppercase tracking-[0.12em] text-brand-red">Email</dt>
+              <dd class="mt-2">
+                <a href={`mailto:${contact.salesEmail}?subject=Showroom%20appointment`} class="font-medium text-brand-ink hover:text-brand-red">{contact.salesEmail}</a>
+              </dd>
+            </div>
+          </dl>
+
+          <a href="/contact" class="btn-primary mt-8">Book a visit</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="reveal mt-16 overflow-hidden rounded-[2rem] bg-paper" data-delay="2">
+      <iframe
+        title="Map showing the Direct Installations showroom, Denton, Manchester"
+        src={mapSrc}
+        width="100%"
+        height="420"
+        style="border:0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
